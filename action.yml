@@ -1,0 +1,23 @@
+name: 'FTP Deploy Action'
+description: 'FTP üzerinden dosya yüklemek için kullanılan bir GitHub Action'
+author: 'Efe Dincer'
+inputs:
+  ftp_server:
+    description: 'FTP sunucusunun adresi'
+    required: true
+  ftp_username:
+    description: 'FTP sunucusunun kullanıcı adı'
+    required: true
+  ftp_password:
+    description: 'FTP sunucusunun şifresi'
+    required: true
+  local_dir:
+    description: 'Yüklemek için kullanılan yerel dizin'
+    default: './'
+  remote_dir:
+    description: 'FTP sunucusundaki uzak dizin'
+    default: '/path/on/ftp/server'
+
+runs:
+  using: 'python3'
+  main: 'ftp_upload.py'
